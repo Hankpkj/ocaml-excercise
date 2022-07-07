@@ -5,18 +5,16 @@ let txt =
   Lists.split_with_char_list [ '\n' ] (Read.file "../sample/aoc_2021_day2.txt")
 
 (* day2 시작 *)
-let day2_txt = In_channel.read_all "../sample/aoc_2021_day2.txt"
-let space_split x = String.split_on_chars ~on:[ ' ' ] x
 let list_of_list = map (Lists.split_with_char_list [ ' ' ]) txt
 
-type direction = UP | DOWN | FORWARD | NONETYPE
+type direction = UP | DOWN | FORWARD
 
 let string_to_variant x =
   match x with
   | "up" -> UP
   | "down" -> DOWN
   | "forward" -> FORWARD
-  | _ -> NONETYPE
+  | _ -> failwith "invalid input"
 
 let list_to_tuple l =
   match l with
@@ -33,14 +31,14 @@ let move_with_values direction step depth horizontal =
   | UP -> (depth - step, horizontal)
   | DOWN -> (depth + step, horizontal)
   | FORWARD -> (depth, horizontal + step)
-  | NONETYPE -> (depth, horizontal)
 
 let rec move l (d, h) =
   match l with
   | [] -> d * h
   | (d', s') :: t -> move t (move_with_values d' s' d h)
 
-let answer1 () = Printf.printf "day2_1 answer is %d" (move list_of_tuple (0, 0))
+let answer1 () =
+  Printf.printf "day2_1 answer is %d\n" (move list_of_tuple (0, 0))
 
 (* day2 - 2번 문제 *)
 let move_with_aim direction step depth horizontal aim =
@@ -48,7 +46,6 @@ let move_with_aim direction step depth horizontal aim =
   | UP -> (depth, horizontal, aim - step)
   | DOWN -> (depth, horizontal, aim + step)
   | FORWARD -> (depth + (aim * step), horizontal + step, aim)
-  | NONETYPE -> (depth, horizontal, aim)
 
 let rec move2 l (depth, horizontal, aim) =
   match l with
@@ -57,4 +54,4 @@ let rec move2 l (depth, horizontal, aim) =
       move2 t (move_with_aim direction step depth horizontal aim)
 
 let answer2 () =
-  Printf.printf "day2_2 answer is %d" (move2 list_of_tuple (0, 0, 0))
+  Printf.printf "day2_2 answer is %d\n" (move2 list_of_tuple (0, 0, 0))

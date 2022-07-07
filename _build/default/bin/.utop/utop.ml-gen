@@ -65,6 +65,7 @@ Clflags.include_dirs :=
   ; "/Users/kyungjaepark/Projects/ocaml_exercise/_build/default/lib/.utils.objs/byte"
   ; "/Users/kyungjaepark/Projects/ocaml_exercise/_build/default/lib/day1/.day1.objs/byte"
   ; "/Users/kyungjaepark/Projects/ocaml_exercise/_build/default/lib/day2/.day2.objs/byte"
+  ; "/Users/kyungjaepark/Projects/ocaml_exercise/_build/default/lib/day3/.day3.objs/byte"
   ; "/Users/kyungjaepark/Projects/ocaml_exercise/_build/default/lib/solution/.solution.objs/byte"
   ];
 UTop_main.main ();

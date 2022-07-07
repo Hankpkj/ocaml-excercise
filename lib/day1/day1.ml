@@ -14,9 +14,6 @@ let rec increase_count l prev acc =
   | [] -> acc
   | h :: t ->
       increase_count t h (match h > prev with true -> acc + 1 | false -> acc)
-;;
-
-increase_count int_list max_value 0
 
 (* day 1 - 2번 문제 *)
 let rec count_by_three_words l =
@@ -28,7 +25,7 @@ let rec count_by_three_words l =
   | _ -> 0
 
 let answer1 () =
-  Printf.printf "day1_1 answer is %d" (increase_count int_list max_value 0)
+  Printf.printf "day1_1 answer is %d \n" (increase_count int_list max_value 0)
 
 let answer2 () =
-  Printf.printf "day1_2 answer is %d" (count_by_three_words int_list)
+  Printf.printf "day1_2 answer is %d \n" (count_by_three_words int_list)
