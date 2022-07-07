@@ -1,0 +1,3 @@
+(library
+ (name solution)
+ (libraries core utils day1 day2))

@@ -1,4 +1,4 @@
 (executable
  (public_name ocaml_exercise)
- (name main)
- (libraries ocaml_exercise core))
+ (name exec)
+ (libraries  core solution day1 day2))
